@@ -1,7 +1,7 @@
 import ValidatingTextInput from "../../components/Input/ValidatingTextInput";
 import React from "react";
-import {emptyTextValidator} from "../../utils/formUtils";
-import useStyles from "./LogInStyles";
+import { emptyTextValidator } from './utils/formUtils'
+
 
 export default function PasswordField({value, setter, validate, validationRes, ...props}){
     const passwordValidator = (v) => {

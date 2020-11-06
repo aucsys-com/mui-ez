@@ -2,7 +2,7 @@ import React from 'react'
 import ValidatingTextInput from './ValidatingTextInput'
 import { parsePhoneNumber } from 'libphonenumber-js'
 
-const PhoneInput = ({ value, validate, validationRes, id, mandatory, setter, ...props }) => {
+const PhoneField = ({ value, validate, validationRes, id, mandatory, setter, ...props }) => {
 
 
   const validator = () => {
@@ -31,4 +31,4 @@ const PhoneInput = ({ value, validate, validationRes, id, mandatory, setter, ...
   )
 }
 
-export default PhoneInput
+export default PhoneField
