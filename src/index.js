@@ -5,6 +5,7 @@ import SelectWithOneChoosableOption from "./components/Input/SelectWithOneChoosa
 import SelectWithManyChoosableOptions from "./components/Input/SelectWithManyChoosableOptions";
 import SelectWithInsertableOption from "./components/Input/SelectWithInsertableOption";
 import {ValidatingSelectWithInsertableOption} from "./components/Input/ValidatingSelectWithInsertableOption";
+import CustomButton from './components/Button/CustomButton'
 import {emptyTextValidator, isFormValid, makeErrorText, numberValidator} from "./components/Input/utils/formUtils";
 
 
@@ -15,6 +16,7 @@ export {
   SelectWithManyChoosableOptions,
   SelectWithInsertableOption,
   ValidatingSelectWithInsertableOption,
+  CustomButton,
   isFormValid,
   makeErrorText,
   numberValidator,
