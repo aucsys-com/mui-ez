@@ -3,7 +3,7 @@ import {CircularProgress, TextField} from "@material-ui/core";
 import Autocomplete from "@material-ui/lab/Autocomplete";
 
 
-const SelectWithOneChoosableOption = ({label, value, options, setter, validate, validationFailText, validationRes, id, isLoading, onInputChange, disableUnderline, ...props}) => {
+const SelectWithOneChoosableOption = ({label, value, options, setter, validate, validationFailText, validationRes, id, isLoading, onInputChange, disableUnderline, renderOption, ...props}) => {
     const [open, setOpen] = useState(false);
 
     const handleChange = (option) => {
@@ -49,7 +49,7 @@ const SelectWithOneChoosableOption = ({label, value, options, setter, validate, 
             getOptionSelected={(option, value) => {return option.id === value.id;}}
             onChange={(e, option) => handleChange(option)}
             getOptionLabel={option => option.name || ""}
-            renderOption={option => option.name}
+            renderOption={option => renderOption ? renderOption(option) : option.name}
             renderInput={params => (
                 <TextField
                     {...params}

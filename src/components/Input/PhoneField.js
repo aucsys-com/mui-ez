@@ -1,30 +1,32 @@
 import React from 'react'
-import ValidatingTextInput from './ValidatingTextInput'
 import { parsePhoneNumber } from 'libphonenumber-js'
+
+import PhoneInput from 'react-phone-input-2'
+import 'react-phone-input-2/lib/material.css'
+import { makeErrorText } from './utils/formUtils'
 
 const PhoneField = ({ value, validate, validationRes, id, mandatory, setter, ...props }) => {
 
-
-  const validator = () => {
-    try {
-      parsePhoneNumber(value)
-    } catch (e) {
-      return 'Please enter a valid phone with + followed by country code'
-    }
+  if (validationRes) {
+    validationRes[id] = makeErrorText(validator, val) === ''
   }
 
   return (
-    <ValidatingTextInput
-      id={'phone'}
-      label="Phone"
-      type="tel"
+    <PhoneInput
+      country={'gb'}
       value={value}
-      validate={validate}
-      validationRes={validationRes}
-      validator={validator}
-      inputProps={{ maxLength: 14 }}
-      setter={(val) => {
-        setter(val.replace(/[^\d+]/g, ''))
+      onChange={phone => setter?.setter(phone)}
+      isValid={(value, country) => {
+        if (validate) {
+          try {
+            console.log('checking', value)
+            parsePhoneNumber(`+${value}`)
+            return true
+          } catch (e) {
+            return 'Phone number not valid'
+          }
+        }
+        return true
       }}
       {...props}
     />
