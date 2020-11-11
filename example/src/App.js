@@ -1,10 +1,29 @@
-import React from 'react'
+import React, { useState } from 'react'
 
-import { ExampleComponent } from 'mui-ez'
+import { PhoneField } from 'mui-ez'
 import 'mui-ez/dist/index.css'
+import { Button } from '@material-ui/core'
 
 const App = () => {
-  return <ExampleComponent text="Create React Library Example 😄" />
+  const [validatePhone, setValidatePhone] = useState(false)
+  const [phoneValue, setPhoneValue] = useState('')
+
+  let validationRes = {}
+
+  return (
+    <>
+      <div style={{ paddingTop: 32 }}>
+        <Button onClick={() => setValidatePhone(!validatePhone)}>
+          Validate
+        </Button>
+        <PhoneField id="phone"
+                    value={phoneValue}
+                    setter={setPhoneValue}
+                    validate={validatePhone}
+                    validationRes={validationRes}/>
+      </div>
+    </>
+  )
 }
 
 export default App
