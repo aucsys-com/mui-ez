@@ -6,6 +6,9 @@ import { Button } from '@material-ui/core'
 
 const App = () => {
   const [validatePhone, setValidatePhone] = useState(false)
+  const [phoneValue, setPhoneValue] = useState('')
+
+  let validationRes = {}
 
   return (
     <>
@@ -13,7 +16,11 @@ const App = () => {
         <Button onClick={() => setValidatePhone(!validatePhone)}>
           Validate
         </Button>
-        <PhoneField validate={validatePhone}/>
+        <PhoneField id="phone"
+                    value={phoneValue}
+                    setter={setPhoneValue}
+                    validate={validatePhone}
+                    validationRes={validationRes}/>
       </div>
     </>
   )

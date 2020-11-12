@@ -7,24 +7,29 @@ import { makeErrorText } from './utils/formUtils'
 
 const PhoneField = ({ value, validate, validationRes, id, mandatory, setter, ...props }) => {
 
+  const validateNumber = (value) => {
+    try {
+      const num = parsePhoneNumber(`+${value}`)
+      if (!num.isValid()) {
+        return 'Phone number not valid'
+      }
+    } catch (e) {
+      return 'Please enter phone number'
+    }
+  }
+
   if (validationRes) {
-    validationRes[id] = makeErrorText(validator, val) === ''
+    validationRes[id] = makeErrorText(validateNumber, value) === ''
   }
 
   return (
     <PhoneInput
       country={'gb'}
       value={value}
-      onChange={phone => setter?.setter(phone)}
+      onChange={phone => setter && setter(phone)}
       isValid={(value, country) => {
         if (validate) {
-          try {
-            console.log('checking', value)
-            parsePhoneNumber(`+${value}`)
-            return true
-          } catch (e) {
-            return 'Phone number not valid'
-          }
+            return validateNumber(value) || true
         }
         return true
       }}
