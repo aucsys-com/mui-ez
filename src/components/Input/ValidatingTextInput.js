@@ -30,7 +30,7 @@ const ValidatingTextInput = ({value, id, validationRes, validator, validate, set
                 const v = e.target.value
                 if(validate)
                     setErrorText(makeErrorText(validator, v))
-                setter(v)
+                setter && setter(v)
                 setVal(v)
             }}
             {...props}/>

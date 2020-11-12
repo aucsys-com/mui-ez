@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-import { PhoneField } from 'mui-ez'
+import { PhoneField, PasswordField } from 'mui-ez'
 import 'mui-ez/dist/index.css'
 import { Button } from '@material-ui/core'
 
@@ -20,7 +20,8 @@ const App = () => {
                     value={phoneValue}
                     setter={setPhoneValue}
                     validate={validatePhone}
-                    validationRes={validationRes}/>
+                    validationRes={validationRes} />
+        <PasswordField />
       </div>
     </>
   )
