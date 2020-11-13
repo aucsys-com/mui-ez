@@ -6,7 +6,7 @@ import IconButton from '@material-ui/core/IconButton'
 import { Visibility, VisibilityOff } from '@material-ui/icons'
 
 
-export default function PasswordField({ value, setter, validate, validationRes, ...props }) {
+export default function PasswordField({ value, setter, validate, validationRes, withEye, ...props }) {
   const [show, setShow] = useState(false)
 
   const passwordValidator = (v) => {
@@ -26,19 +26,22 @@ export default function PasswordField({ value, setter, validate, validationRes, 
                          validator={passwordValidator}
                          validate={validate}
                          validationRes={validationRes}
-                         InputProps={{endAdornment:
-                           <InputAdornment position="end">
-                             <IconButton
-                               aria-label="toggle password visibility"
-                               onClick={() => {
-                                 setShow(!show)
-                               }}
-                             //  onMouseDown={handleMouseDownPassword}
-                             >
-                               {show ? <Visibility /> : <VisibilityOff />}
-                             </IconButton>
-                           </InputAdornment>
-                         }}
+                         { ...(withEye && {
+                           InputProps: {
+                             endAdornment:
+                               <InputAdornment position="end">
+                                 <IconButton
+                                   aria-label="toggle password visibility"
+                                   onClick={() => {
+                                     setShow(!show)
+                                   }}
+                                   //  onMouseDown={handleMouseDownPassword}
+                                 >
+                                   {show ? <Visibility /> : <VisibilityOff />}
+                                 </IconButton>
+                               </InputAdornment>
+                           }
+                         }) }
                          {...props} />
   )
 }

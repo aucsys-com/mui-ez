@@ -7,13 +7,14 @@ import { Button } from '@material-ui/core'
 const App = () => {
   const [validatePhone, setValidatePhone] = useState(false)
   const [phoneValue, setPhoneValue] = useState('')
+  const [passwordFieldEye, setPasswordFieldEye] = useState(true)
 
   let validationRes = {}
 
   return (
     <>
       <div style={{ paddingTop: 32 }}>
-        <Button onClick={() => setValidatePhone(!validatePhone)}>
+        <Button onClick={() => setValidatePhone(!validatePhone)} variant='outlined'>
           Validate
         </Button>
         <PhoneField id="phone"
@@ -21,7 +22,10 @@ const App = () => {
                     setter={setPhoneValue}
                     validate={validatePhone}
                     validationRes={validationRes} />
-        <PasswordField />
+        <Button onClick={() => setPasswordFieldEye(!passwordFieldEye)} variant='outlined'>
+          Show Eye
+        </Button>
+        <PasswordField withEye={passwordFieldEye}/>
       </div>
     </>
   )
