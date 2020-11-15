@@ -32,6 +32,7 @@ export default function PasswordField({ value, setter, validate, validationRes, 
                                <InputAdornment position="end">
                                  <IconButton
                                    aria-label="toggle password visibility"
+                                   edge="end"
                                    onClick={() => {
                                      setShow(!show)
                                    }}

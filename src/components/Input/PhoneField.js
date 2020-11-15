@@ -26,7 +26,7 @@ const PhoneField = ({ value, validate, validationRes, id, mandatory, setter, ...
     <PhoneInput
       country={'gb'}
       value={value}
-      onChange={phone => setter && setter(phone)}
+      onChange={phone => setter && setter(`+${phone}`)}
       isValid={(value, country) => {
         if (validate) {
             return validateNumber(value) || true
