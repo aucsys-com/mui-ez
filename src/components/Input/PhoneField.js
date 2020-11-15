@@ -3,24 +3,28 @@ import { parsePhoneNumber } from 'libphonenumber-js'
 
 import PhoneInput from 'react-phone-input-2'
 import 'react-phone-input-2/lib/material.css'
-import { makeErrorText } from './utils/formUtils'
 
 const PhoneField = ({ value, validate, validationRes, id, mandatory, setter, ...props }) => {
 
   const validateNumber = (value) => {
     try {
-      const num = parsePhoneNumber(`+${value}`)
+      console.log(`parsing ${value}`)
+      const num = parsePhoneNumber(value)
       if (!num.isValid()) {
         return 'Phone number not valid'
       }
     } catch (e) {
+      console.log(e)
       return 'Please enter phone number'
     }
+    return true;
   }
 
   if (validationRes) {
-    validationRes[id] = makeErrorText(validateNumber, value) === ''
+    validationRes[id] = validateNumber(value)
   }
+
+  console.log(validationRes)
 
   return (
     <PhoneInput
