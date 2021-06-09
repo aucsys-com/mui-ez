@@ -19,7 +19,6 @@ export default function PasswordField({ value, setter, validate, validationRes, 
     <ValidatingTextInput label="Password"
                          id={'password'}
                          variant="outlined"
-                         size="small"
                          value={value}
                          setter={setter}
                          type={show ? 'text' : 'password'}

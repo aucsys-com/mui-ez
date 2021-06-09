@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {Checkbox, CircularProgress, TextField} from "@material-ui/core";
-import Autocomplete from "@material-ui/lab/Autocomplete";
+import Autocomplete from '@material-ui/core/Autocomplete'
 import CheckBoxIcon from '@material-ui/icons/CheckBox';
 import CheckBoxOutlineBlankIcon from '@material-ui/icons/CheckBoxOutlineBlank';
 

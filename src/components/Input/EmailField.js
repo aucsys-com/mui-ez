@@ -12,7 +12,6 @@ export default function EmailField({value, setter, validate, validationRes, ...p
         <ValidatingTextInput label="Email"
                              id={'email'}
                              variant="outlined"
-                             size="small"
                              value={value}
                              setter={setter}
                              validator={emailValidator}

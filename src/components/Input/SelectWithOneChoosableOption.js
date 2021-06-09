@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {CircularProgress, TextField} from "@material-ui/core";
-import Autocomplete from "@material-ui/lab/Autocomplete";
+import Autocomplete from '@material-ui/core/Autocomplete'
 
 
 const SelectWithOneChoosableOption = ({label, value, options, setter, validate, validationFailText, validationRes, id, isLoading, onInputChange, disableUnderline, renderOption, ...props}) => {

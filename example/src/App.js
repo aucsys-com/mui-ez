@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 
 import { PhoneField, PasswordField } from 'mui-ez'
 import 'mui-ez/dist/index.css'
-import { Button } from '@material-ui/core'
+import { Button, Grid } from '@material-ui/core'
 
 const App = () => {
   const [validatePhone, setValidatePhone] = useState(false)
@@ -27,6 +27,9 @@ const App = () => {
         </Button>
         <PasswordField withEye={passwordFieldEye}/>
       </div>
+      <Grid container>
+
+      </Grid>
     </>
   )
 }

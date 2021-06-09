@@ -7,24 +7,23 @@ import 'react-phone-input-2/lib/material.css'
 const PhoneField = ({ value, validate, validationRes, id, mandatory, setter, ...props }) => {
 
   const validateNumber = (value) => {
+    if(value === ''){
+      return 'Please enter phone number'
+    }
     try {
-      console.log(`parsing ${value}`)
       const num = parsePhoneNumber(value)
       if (!num.isValid()) {
         return 'Phone number not valid'
       }
     } catch (e) {
-      console.log(e)
-      return 'Please enter phone number'
+      return 'Phone number not valid'
     }
     return true;
   }
 
   if (validationRes) {
-    validationRes[id] = validateNumber(value)
+    validationRes[id] = !!validateNumber(value)
   }
-
-  console.log(validationRes)
 
   return (
     <PhoneInput
@@ -33,7 +32,7 @@ const PhoneField = ({ value, validate, validationRes, id, mandatory, setter, ...
       onChange={phone => setter && setter(`+${phone}`)}
       isValid={(value, country) => {
         if (validate) {
-            return validateNumber(value) || true
+            return validateNumber(`+${value}`)
         }
         return true
       }}
