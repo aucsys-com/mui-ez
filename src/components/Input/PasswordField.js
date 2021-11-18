@@ -81,6 +81,7 @@ const StyledComponent = withStyles(styles)(
         children,
         colorStyle,
         withEye,
+        validate,
         ...other
     }) => (
         <ValidatingTextInput
@@ -90,6 +91,7 @@ const StyledComponent = withStyles(styles)(
             variant='outlined'
             type={show ? 'text' : 'password'}
             validator={passwordValidator}
+            validate={validate}
             {...(withEye && {
                 InputProps: {
                     endAdornment: (
@@ -100,7 +102,8 @@ const StyledComponent = withStyles(styles)(
                                 className={
                                     eyeStyle({
                                         colorStyle: colorStyle,
-                                        hasError: passwordValidator(value)
+                                        hasError:
+                                            validate && passwordValidator(value)
                                     }).eyeStyles
                                 }
                                 onClick={() => {
