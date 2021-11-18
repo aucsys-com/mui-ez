@@ -61,16 +61,14 @@ const PasswordField = ({ colorStyle, withEye, ...props }) => {
     }
 
     return (
-        <>
-            <StyledComponent
-                show={show}
-                setShow={setShow}
-                withEye={withEye}
-                passwordValidator={passwordValidator}
-                colorStyle={colorStyle}
-                {...props}
-            />
-        </>
+        <StyledComponent
+            show={show}
+            setShow={setShow}
+            withEye={withEye}
+            passwordValidator={passwordValidator}
+            colorStyle={colorStyle}
+            {...props}
+        />
     )
 }
 
